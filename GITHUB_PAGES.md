@@ -6,6 +6,8 @@ Publish GitHub Pages from main, / (root). The root CNAME is someotherlife.studio
 
 GitHub Pages serves static files. The three public forms use the existing Site at https://some-other-life.lineddisc3.chatgpt.site so registrations remain in the existing database. Studio stays at that Site and retains its existing owner authentication. No subscriber data, credentials or runtime secrets are stored in this repository.
 
+Daily inspiration uses an expandable glass panel, adapted from the owner's SET ON YOU experience. The bundled note collection rotates by the Australia/Brisbane calendar date and refreshes at midnight or when a visitor returns to the tab. Its clock uses 12-hour Queensland time. Long studio reflections and short sourced artist excerpts keep separate credits. Edit lib/daily-inspiration.ts to maintain the note collection.
+
 The build adapter in github-pages changes only form destinations and the Studio link at build time. Edit components/collection-experience.tsx and app/globals.css for the public experience. To regenerate: install the pinned dependencies, run node scripts/check-release-embargo.mjs and node scripts/build-pages.mjs, and copy dist/pages into the repository root. Deploy backend changes separately through ChatGPT Sites.
 
 DNS for GitHub Pages: set apex A records to 185.199.108.153, 185.199.109.153, 185.199.110.153 and 185.199.111.153. Set www CNAME to bayleymcrae-cell.github.io. Preserve existing mail records. Configure the custom domain in GitHub Pages before switching DNS and enable HTTPS after the certificate is ready.

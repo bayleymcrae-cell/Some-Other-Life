@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import DailyInspiration from "./daily-inspiration";
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none"><path d={diagonal ? "M5 19 19 5M5 5h14v14" : "M4 12h15m-6-6 6 6-6 6"} stroke="currentColor" strokeWidth="1.2" /></svg>;
@@ -34,6 +35,7 @@ export default function CollectionExperience() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [info, setInfo] = useState<Information>(null);
   const [scene, setScene] = useState(0);
+  const [dailyOpen, setDailyOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
@@ -42,6 +44,12 @@ export default function CollectionExperience() {
   const infoDialog = useRef<HTMLDialogElement>(null);
   const emailInput = useRef<HTMLInputElement>(null);
   const current = scenes[scene];
+  useEffect(() => {
+    const followDailyLink = () => { if (window.location.hash === "#daily-note") setDailyOpen(true); };
+    followDailyLink();
+    window.addEventListener("hashchange", followDailyLink);
+    return () => window.removeEventListener("hashchange", followDailyLink);
+  }, []);
   useEffect(() => { if (menuOpen) menuDialog.current?.showModal(); else menuDialog.current?.close(); }, [menuOpen]);
   useEffect(() => { if (info) infoDialog.current?.showModal(); else infoDialog.current?.close(); }, [info]);
   useEffect(() => {
@@ -109,9 +117,11 @@ export default function CollectionExperience() {
       <section className="release-section release-editorial" id="release-list" aria-labelledby="release-title"><EditorialImage study={studies[6]} onOpen={() => setInfo("notice")} className="release-image" sizes="(max-width: 700px) 100vw, 50vw" /><div className="release-panel"><div className="release-intro"><p className="eyebrow">COLLECTION UPDATES</p><h2 id="release-title">Be informed.</h2><p>Receive news of the first release.</p></div><div className="release-form-wrap">{status === "saved" ? <div className="success-card" role="status"><p className="eyebrow">SOME OTHER LIFE</p><h3>You’re on the list.</h3><p>Your registration is saved.</p><button className="text-link" onClick={() => { setStatus("idle"); setEmail(""); setConsent(false); }}>Use another email <Arrow /></button></div> : <form className="release-form" onSubmit={joinList}><label className="field-label" htmlFor="release-email">Email address</label><input ref={emailInput} id="release-email" type="email" autoComplete="email" placeholder="Your email address" required maxLength={254} value={email} onChange={e => setEmail(e.target.value)} /><div className="bot-field" aria-hidden="true"><label htmlFor="website">Website</label><input id="website" name="website" tabIndex={-1} autoComplete="off" /></div><label className="consent"><input type="checkbox" checked={consent} onChange={e => setConsent(e.target.checked)} required /><span>Email me about collections and releases. Unsubscribe at any time.</span></label><p className="privacy-line"><button type="button" onClick={() => setInfo("privacy")}>Privacy notice</button></p>{error && <p className="form-error" role="alert">{error}</p>}<button className="button submit-button" type="submit" disabled={status === "saving"}>{status === "saving" ? "Saving…" : "Notify me"}<Arrow /></button></form>}</div></div></section>
     </main>
 
-    <footer className="site-footer"><a className="footer-brand" href="#" aria-label="Some Other Life, back to top"><img src="/assets/logo.jpg" alt="" width="38" height="44" />SOME OTHER LIFE</a><nav aria-label="Footer"><a href="#details">Collection 01</a><a href="#release-list">Updates</a><button onClick={() => setInfo("release")}>Release information</button><button onClick={() => setInfo("privacy")}>Privacy</button></nav><div className="footer-bottom"><span>© {new Date().getFullYear()} SOME OTHER LIFE</span><a href="/studio">Studio <Arrow diagonal /></a></div></footer>
+    <footer className="site-footer"><a className="footer-brand" href="#" aria-label="Some Other Life, back to top"><img src="/assets/logo.jpg" alt="" width="38" height="44" />SOME OTHER LIFE</a><nav aria-label="Footer"><a href="#details">Collection 01</a><a href="#release-list">Updates</a><button onClick={() => setDailyOpen(true)}>Daily inspiration</button><button onClick={() => setInfo("release")}>Release information</button><button onClick={() => setInfo("privacy")}>Privacy</button></nav><div className="footer-bottom"><span>© {new Date().getFullYear()} SOME OTHER LIFE</span><a href="/studio">Studio <Arrow diagonal /></a></div></footer>
 
-    <dialog ref={menuDialog} className="menu-dialog" aria-labelledby="menu-title" onClose={() => setMenuOpen(false)} onClick={e => { if (e.target === e.currentTarget) setMenuOpen(false); }}><div className="menu-panel"><div className="dialog-top"><span id="menu-title" className="eyebrow">SOME OTHER LIFE</span><button className="icon-button" aria-label="Close menu" onClick={() => setMenuOpen(false)}><Close /></button></div><nav aria-label="Main navigation"><a href="#details" onClick={() => setMenuOpen(false)}>Collection 01 <Arrow /></a><a href="#signature" onClick={() => setMenuOpen(false)}>The signature <Arrow /></a><a href="#studio-notes" onClick={() => setMenuOpen(false)}>Studio notes</a><button onClick={register}>Updates <Arrow /></button></nav><img className="menu-emblem" src="/assets/logo.jpg" alt="" width="110" height="125" /></div></dialog>
+    <DailyInspiration open={dailyOpen} onOpenChange={setDailyOpen} hidden={menuOpen || info !== null} />
+
+    <dialog ref={menuDialog} className="menu-dialog" aria-labelledby="menu-title" onClose={() => setMenuOpen(false)} onClick={e => { if (e.target === e.currentTarget) setMenuOpen(false); }}><div className="menu-panel"><div className="dialog-top"><span id="menu-title" className="eyebrow">SOME OTHER LIFE</span><button className="icon-button" aria-label="Close menu" onClick={() => setMenuOpen(false)}><Close /></button></div><nav aria-label="Main navigation"><a href="#details" onClick={() => setMenuOpen(false)}>Collection 01 <Arrow /></a><a href="#signature" onClick={() => setMenuOpen(false)}>The signature <Arrow /></a><a href="#studio-notes" onClick={() => setMenuOpen(false)}>Studio notes</a><button onClick={() => { setMenuOpen(false); setDailyOpen(true); }}>Daily inspiration</button><button onClick={register}>Updates <Arrow /></button></nav><img className="menu-emblem" src="/assets/logo.jpg" alt="" width="110" height="125" /></div></dialog>
 
     <dialog ref={infoDialog} className={`info-dialog ${study ? "image-dialog" : ""}`} aria-labelledby="info-title" onClose={() => setInfo(null)} onClick={e => { if (e.target === e.currentTarget) setInfo(null); }}><div className="info-content"><div className="dialog-top"><span className="eyebrow">SOME OTHER LIFE</span><button className="icon-button" aria-label="Close information" onClick={() => setInfo(null)}><Close /></button></div><h2 id="info-title">{study ? study.name : info === "privacy" ? "Privacy" : "Collection 01"}</h2>{study ? <><img className="expanded-study" src={study.image} alt={study.alt} width="1122" height="1402" /><p className="study-note">{study.note}</p></> : info === "privacy" ? <><p>We save your email address and consent date to provide Some Other Life collection and release updates. Your details are held by our website provider and are visible only to the studio owner.</p><p>We do not sell subscriber details or use advertising trackers. Essential hosting or sign-in cookies may be used. Anti-spam checks may store a hashed network identifier for up to an hour.</p><p>Unsubscribe from a future email, or <a href="/privacy-request">request removal here</a>.</p></> : <><p>The first collection is in development. The release date, prices and final details will be announced before orders open.</p><p>Registering for updates does not reserve a garment or create an order.</p><button className="button button-dark" onClick={register}>Notify me <Arrow /></button></>}</div></dialog>
   </>;
