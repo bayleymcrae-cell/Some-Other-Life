@@ -20,3 +20,51 @@ dialog{padding:0;border:0;background:var(--paper);color:var(--ink)}dialog::backd
 .brand-emblem,.signature-mark img,.footer-brand img,.menu-emblem{object-fit:cover;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);mix-blend-mode:multiply}.brand-emblem{width:38px;height:38px}.signature-mark img{width:300px;height:300px}.footer-brand img{width:38px;height:38px}.menu-emblem{width:100px;height:100px;padding:0;margin-bottom:12px}
 @media(max-width:700px){.brand-emblem{width:30px;height:30px}.signature-mark img{width:230px;height:230px}.footer-brand img{width:34px;height:34px}.menu-emblem{width:85px;height:85px}}
 @media(max-width:360px){.brand-emblem{width:25px;height:25px}}
+
+/* Collection editorial. All supplied photographs retain their full framing. */
+.editorial-image{position:relative;display:block;width:100%;overflow:hidden;text-align:left;background:#131c24}
+.editorial-image>img{width:100%;height:auto;aspect-ratio:1122/1402;object-fit:contain}
+.image-view{position:absolute;right:18px;bottom:18px;padding:10px 14px;color:#2b251f;background:#f0ebe2f2;font-size:14px;line-height:1.2;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s}
+.editorial-image:hover .image-view,.editorial-image:focus-visible .image-view{opacity:1;transform:none}
+.material-studies{padding-top:96px;padding-bottom:96px}
+.material-studies .section-heading{margin-bottom:42px}
+.material-studies .eyebrow,.signature-heading .eyebrow,.studio-note-copy .eyebrow,.release-editorial .eyebrow{font-size:12px;letter-spacing:.16em}
+.material-studies .section-heading h2{font-size:clamp(38px,4vw,58px);margin-top:15px}
+.material-studies .section-heading>p{font-size:16px}
+.material-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.material-study figcaption{font-size:14px;line-height:1.6;padding-top:16px}
+.material-studies .detail-disclosure{font-size:14px;line-height:1.6;margin-top:36px}
+.signature-editorial{display:grid;grid-template-columns:1.18fr 1fr;align-items:end;gap:7%;padding:88px 7%;background:#101b24;color:#eee7da}
+.signature-detail{padding-bottom:0}
+.signature-heading{padding:0 0 40px}
+.signature-heading .eyebrow{color:#b8c0c4}
+.signature-heading h2{font:normal clamp(36px,4vw,58px)/1.12 var(--serif);letter-spacing:-.03em;margin:20px 0}
+.signature-heading>p:last-child{font-size:16px;color:#b8c0c4;line-height:1.6}
+.signature-detail .editorial-image{width:88%;margin-left:auto}
+.studio-notes{display:grid;grid-template-columns:1fr 1.08fr;align-items:center;gap:10%;padding-top:112px;padding-bottom:112px}
+.studio-note-copy h2{font:normal clamp(32px,3.8vw,58px)/1.22 var(--serif);letter-spacing:-.03em;margin:25px 0 28px}
+.studio-note-copy>p:last-child{font-size:16px;line-height:1.6;color:var(--muted)}
+.release-editorial{padding:0;gap:0;grid-template-columns:1fr 1fr;align-items:center;background:#28211b}
+.release-panel{padding:64px 12%;width:100%;max-width:680px;margin:auto}
+.release-editorial .release-form-wrap{margin-top:40px}
+.release-editorial .release-intro>p:not(.eyebrow){font-size:16px}
+.release-editorial .field-label{font-size:14px}
+.release-editorial .release-form input[type=email]{font-size:16px;padding-bottom:16px}
+.release-editorial .consent{font-size:14px;line-height:1.7;gap:12px}
+.release-editorial .consent input{width:17px;height:17px;margin-top:3px}
+.release-editorial .privacy-line{font-size:14px;margin-left:29px}
+.release-editorial .submit-button{font-size:14px;min-height:54px}
+.release-editorial .success-card>p:not(.eyebrow),.release-editorial .success-card .text-link,.release-editorial .form-error{font-size:16px}
+.image-dialog .expanded-study{height:auto;max-height:65dvh;object-fit:contain;background:transparent}
+.image-dialog .study-note{font-size:14px!important;line-height:1.6}
+.image-dialog .dialog-top .eyebrow{font-size:12px}
+@media(min-width:1600px){.material-studies,.signature-editorial,.studio-notes{padding-left:max(7%,calc((100vw - 1400px)/2));padding-right:max(7%,calc((100vw - 1400px)/2))}}
+@media(max-width:1024px){.material-grid{gap:18px}.signature-editorial{gap:6%;padding:65px 7%}.signature-heading{padding-bottom:25px}.signature-heading h2{font-size:38px}.studio-notes{gap:7%;padding-top:80px;padding-bottom:80px}.studio-note-copy h2{font-size:38px}.release-panel{padding:48px 9%}.release-editorial .release-intro h2{font-size:46px}}
+@media(hover:none){.image-view{opacity:1;transform:none;font-size:14px;padding:9px 12px}}
+@media(max-width:700px){
+ .material-studies{padding:60px 22px 64px}.material-studies .section-heading{margin-bottom:30px}.material-studies .section-heading h2{font-size:40px}.material-studies .section-heading>p{font-size:16px;line-height:1.6;margin-top:15px}.material-grid{grid-template-columns:1fr;gap:32px}.material-study figcaption{padding-top:13px}.material-studies .detail-disclosure{margin-top:30px;max-width:270px}
+ .signature-editorial{grid-template-columns:1fr;padding:40px 22px 52px;gap:0}.signature-heading{padding:34px 0 28px}.signature-heading h2{font-size:40px;margin:17px 0}.signature-detail .editorial-image{width:78%}
+ .studio-notes{grid-template-columns:1fr;gap:32px;padding:60px 22px}.studio-note-copy h2{font-size:38px;margin:20px 0}.studio-note-copy>p:last-child{font-size:14px}
+ .release-editorial{display:grid;grid-template-columns:1fr;padding:0}.release-panel{padding:48px 28px 54px}.release-editorial .release-intro h2{font-size:45px}.release-editorial .release-form-wrap{margin-top:32px}.release-editorial .privacy-line{margin-bottom:25px}
+ .image-dialog .info-content{padding:14px 18px 24px}.image-dialog .info-content h2{font-size:30px;margin:16px 0}.image-dialog .expanded-study{max-height:62dvh}.image-view{right:12px;bottom:12px}
+}

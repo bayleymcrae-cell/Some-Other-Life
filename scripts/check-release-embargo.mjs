@@ -4,6 +4,11 @@ import { join, relative } from "node:path";
 // Collection 01 stays unrevealed. Any new public file needs an intentional
 // review; adding a blurred copy must not accidentally ship its original.
 const allowed = new Set(["assets/entrance.webp", "assets/social.jpg", "assets/logo.jpg", "assets/texture-study.webp", "assets/embroidery-study.webp", "favicon.png"]);
+// The seven editorial photographs supplied for this website update are public.
+for (const name of ["material-black-yellow", "material-ivory-indigo", "material-petrol-ice", "emblem-study", "embroidery-detail", "studio-notes", "first-notice"]) {
+  allowed.add(`assets/${name}.webp`);
+  allowed.add(`assets/${name}-560.webp`);
+}
 async function files(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
   const results = await Promise.all(entries.map(entry => entry.isDirectory() ? files(join(directory, entry.name)) : [join(directory, entry.name)]));
@@ -15,4 +20,4 @@ const missing = [...allowed].filter(path => !found.includes(path));
 if (unexpected.length || missing.length) {
   throw new Error(`Release embargo audit failed. Unexpected: ${unexpected.join(", ") || "none"}; missing: ${missing.join(", ") || "none"}`);
 }
-console.log("Release embargo passed: only the approved architecture, logo, two cropped detail studies and brand graphics are public.");
+console.log("Release embargo passed: only the approved brand assets and seven supplied editorial photographs are public.");
