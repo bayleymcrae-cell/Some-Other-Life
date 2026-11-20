@@ -117,7 +117,7 @@ export default function CollectionExperience() {
 
       <section className="garment-preview section-wrap" id="collection-preview" aria-labelledby="garment-title">
         <div className="garment-visual"><img key={garment.id} src={garment.image} alt={`Collection 01 design preview: ${garment.name.toLowerCase()} waffle long sleeve with a contrast shoulder panel and embroidered emblems`} width="330" height="290" loading="lazy" decoding="async" /><p>Design preview · Sample in development</p></div>
-        <div className="garment-copy"><p className="eyebrow">COLLECTION 01 · COMING SOON</p><h2 id="garment-title">Waffle long sleeve</h2><p className="garment-description">A contrast shoulder panel. Embroidered emblems. A first look at Collection 01.</p>
+        <div className="garment-copy"><p className="eyebrow">COLLECTION 01 · COMING SOON</p><h2 id="garment-title">Insignia Long Sleeve</h2><p className="garment-description">A contrast shoulder panel. Embroidered emblems. A first look at Collection 01.</p>
           <fieldset className="garment-colours"><legend>Preview a colour</legend><div>{garmentPreviews.map((item, index) => <button key={item.id} type="button" aria-pressed={previewIndex === index} onClick={() => { setPreviewIndex(index); setColourway(item.id); }}>{item.name}</button>)}</div></fieldset>
           <button className="button garment-notify" onClick={() => { setColourway(garment.id); register(); }}>Notify me when it drops</button><p className="garment-note">Leave your preferred colour and size below. Final details and the release date will follow.</p>
         </div>
