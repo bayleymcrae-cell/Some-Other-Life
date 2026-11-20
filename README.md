@@ -1,6 +1,6 @@
 # Some Other Life
 
-A warm stone and bronze, presentation-led clothing-label teaser built from scratch with Vinext, React and Cloudflare Workers. The Collection / Signature / Details scenes use original architectural imagery and indexed, interactive navigation. The supplied logo and two approved detail crops hint at Collection 01. No people, complete shirt render or manufacturing document is shipped.
+A warm stone and bronze, presentation-led clothing-label teaser built from scratch with Vinext, React and Cloudflare Workers. The Collection / Signature / Details scenes use original architectural imagery and indexed, interactive navigation. The supplied logo and two approved detail crops hint at Collection 01. No people or manufacturing document is shipped. Owner-approved front-only shirt previews are displayed as designs in development.
 
 ## Current experience
 
@@ -12,7 +12,7 @@ A warm stone and bronze, presentation-led clothing-label teaser built from scrat
 - Token-based unsubscribe and a removal-request workflow the owner can fulfil in the studio.
 - The user-selected warm architectural image, original supplied logo, two detail crops and coordinated brand graphics.
 
-The full collection remains unrevealed: the complete garment board and shirt renders are absent from the checkout and deployed assets. Only approved detail crops are present. The `scripts/check-release-embargo.mjs` allowlist enforces that policy. Keep the allowlist restrictive until an explicit reveal is authorised.
+The owner approved front-only garment design previews for this update. The full manufacturing board, technical flats and measurements remain private. The `scripts/check-release-embargo.mjs` allowlist enforces the public asset scope.
 
 ## Release operations
 
@@ -20,7 +20,7 @@ Registrations persist in D1. **No email service is connected and email is not se
 
 No prices, sales, inventory levels, availability counts or launch date have been invented. There is no checkout until products and commercial details are approved.
 
-The first hosted release is owner-private. Preserve that audience until the owner requests public access.
+The current website is public. Preserve that audience and the original homepage image.
 
 ## Development
 
