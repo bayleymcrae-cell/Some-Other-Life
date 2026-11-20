@@ -1,5 +1,6 @@
 import { env } from "cloudflare:workers";
 import { colourways, sizes } from "../../../lib/collection";
+import { saveAvailabilitySql, saveSubscriberSql } from "../../../lib/release-preferences";
 
 export const dynamic = "force-dynamic";
 const json = (value: unknown, status = 200) => Response.json(value, { status, headers: { "Cache-Control": "no-store" } });
@@ -34,8 +35,13 @@ export async function POST(request: Request) {
       if (result && result.attempts > 10) return json({ error: "Too many attempts. Please try again in an hour." }, 429);
       await env.DB.prepare('DELETE FROM release_limits WHERE expires_at < ?').bind(Date.now()).run();
     }
-    await env.DB.prepare('INSERT INTO release_list (id, email, colourway, preferred_size, consent_version, created_at, unsubscribe_token) VALUES (?, ?, ?, ?, ?, ?, ?) ON CONFLICT(email) DO NOTHING')
-      .bind(crypto.randomUUID(), email, colourway, size, "release-updates-2026-11", new Date().toISOString(), crypto.randomUUID()).run();
+    const now = new Date().toISOString();
+    const writes = [env.DB.prepare(saveSubscriberSql)
+      .bind(crypto.randomUUID(), email, colourway, size, "release-updates-2026-11", now, crypto.randomUUID())];
+    if (colourway !== "undecided" && size !== "undecided") {
+      writes.push(env.DB.prepare(saveAvailabilitySql).bind(crypto.randomUUID(), email, colourway, size, now));
+    }
+    await env.DB.batch(writes);
     return json({ ok: true });
   } catch (error) {
     console.error("Release list write failed", error instanceof Error ? error.message : "Unknown error");

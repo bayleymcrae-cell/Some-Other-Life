@@ -1,10 +1,11 @@
 import { env } from "cloudflare:workers";
+import { releasePreferencesSql } from "../../../../lib/release-preferences";
 import { isStudioOwner } from "../../../../lib/studio-auth";
 export const dynamic = "force-dynamic";
 export async function GET() {
   if (!(await isStudioOwner())) return new Response("Not authorised", { status: 403 });
   if (!env.DB) return new Response("List unavailable", { status: 503 });
-  const data = await env.DB.prepare("SELECT email, colourway, preferred_size, created_at, consent_version, unsubscribe_token FROM release_list ORDER BY created_at DESC").all<Record<string, string>>();
+  const data = await env.DB.prepare(releasePreferencesSql).all<Record<string, string>>();
   const quote = (value: string) => `"${String(value ?? "").replace(/^[=+\-@\t\r]/, "'$&").replaceAll('"', '""')}"`;
   const columns = ["email", "colourway", "preferred_size", "created_at", "consent_version", "unsubscribe_token"];
   const csv = [columns.join(","), ...data.results.map(row => columns.map(c => quote(row[c])).join(","))].join("\r\n");

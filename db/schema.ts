@@ -1,4 +1,4 @@
-import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
+import { integer, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
 
 export const releaseList = sqliteTable("release_list", {
   id: text("id").primaryKey(),
@@ -20,3 +20,12 @@ export const privacyRequests = sqliteTable("privacy_requests", {
   email: text("email").primaryKey(),
   createdAt: text("created_at").notNull(),
 });
+
+// One subscriber can request updates for several colour and size combinations.
+export const availabilityRequests = sqliteTable("availability_requests", {
+  id: text("id").primaryKey(),
+  email: text("email").references(() => releaseList.email, { onDelete: "cascade" }),
+  colourway: text("colourway").notNull(),
+  preferredSize: text("preferred_size").notNull(),
+  createdAt: text("created_at").notNull(),
+}, table => [uniqueIndex("availability_variant_unique").on(table.email, table.colourway, table.preferredSize)]);
