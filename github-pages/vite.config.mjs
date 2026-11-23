@@ -13,7 +13,7 @@ export default defineConfig({
     transform(code, id) {
       if (!/(collection-experience\.tsx|privacy-request\/page\.tsx|unsubscribe\/page\.tsx)$/.test(id)) return;
       return code.replaceAll('fetch("/api/', `fetch("${backend}/api/`)
-        .replaceAll('href="/studio"', `href="${backend}/studio"`);
+        ;
     },
   }],
   css: { postcss: fileURLToPath(new URL("../", import.meta.url)) },
