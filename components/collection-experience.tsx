@@ -125,7 +125,7 @@ export default function CollectionExperience() {
 
       <section className="collection-shop section-wrap" id="collection-preview" aria-labelledby="collection-title">
         <div className="shop-heading"><div><p className="eyebrow">SOME OTHER LIFE</p><h2 id="collection-title">Collection 01</h2></div><span className="shop-release-status">Coming soon</span></div>
-        <p className="shop-description">Insignia Long Sleeve · Three colourways. ELSEWHERE Cargo Denim.</p>
+        <p className="shop-description">Insignia Long Sleeve. Three colourways.</p>
         <div className="product-grid">{products.map(item => <article className="product-card" key={item.id} aria-labelledby={`product-${item.id}`}>
           <div className="product-square"><img src={item.image} alt={`Insignia Long Sleeve design preview in ${item.name.toLowerCase()}`} width="330" height="290" loading="lazy" decoding="async" /></div>
           <div className="product-info"><h3 id={`product-${item.id}`}>Insignia Long Sleeve</h3><p className="product-colour">{item.name}</p><p className="product-availability">Coming soon</p>
@@ -135,14 +135,8 @@ export default function CollectionExperience() {
           </div>
         </article>)}</div>
         <section className="denim-feature" aria-labelledby="elsewhere-title">
-          <div className="denim-feature-visual"><img src="/assets/elsewhere-cargo-denim.webp" alt="ELSEWHERE vintage-indigo baggy cargo denim with asymmetric blue chenille emblem appliqués" width="173" height="320" loading="lazy" decoding="async" /></div>
-          <div className="denim-feature-content">
-            <p className="eyebrow">COLLECTION 01 / DENIM</p>
-            <h3 id="elsewhere-title">ELSEWHERE</h3>
-            <p className="denim-feature-subtitle">Cargo Denim — Vintage Indigo</p>
-            <p className="denim-feature-copy">Washed indigo. Wide-leg cargo fit. Raised blue embroidery that stops halfway on one leg and travels to the hem on the other.</p>
-            <p className="denim-feature-coming">COMING SOON · DESIGN PREVIEW</p>
-          </div>
+          <div className="denim-feature-visual"><img src="/assets/elsewhere-cargo-denim.webp" alt="A shadowed glimpse of washed-indigo cargo jeans with the SOME OTHER LIFE blue embroidered insignia" width="173" height="320" loading="lazy" decoding="async" /></div>
+          <div className="denim-feature-content"><p className="denim-feature-index">SOME OTHER LIFE <span aria-hidden="true">/</span> 01</p><div className="denim-feature-bottom"><h3 id="elsewhere-title">ELSEWHERE<span aria-hidden="true">.</span></h3><p className="denim-feature-coming">COLLECTION 01 <span aria-hidden="true">—</span> COMING SOON</p></div></div>
         </section>
         <p className="shop-preview-note">Design previews · Samples in development. Final details and release date to follow.</p>
 
