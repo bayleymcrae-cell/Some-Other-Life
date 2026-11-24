@@ -3,14 +3,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://someotherlife.studio"),
-  title: "SOME OTHER LIFE — Independent Fashion Label | Collection 01",
+  title: "SOME OTHER LIFE",
   alternates: { canonical: "/" },
-  description: "SOME OTHER LIFE is an independent Australian fashion label. Explore Collection 01, the Insignia Long Sleeve and denim design previews, and receive release updates.",
+  description: "For a life not yet lived. An independent Australian clothing label. Collection 01 — coming soon.",
   openGraph: {
     url: "https://someotherlife.studio/",
     siteName: "SOME OTHER LIFE",
-    title: "SOME OTHER LIFE — Collection 01",
-    description: "Collection 01. Coming soon.",
+    title: "SOME OTHER LIFE",
+    description: "For a life not yet lived. An independent Australian clothing label. Collection 01 — coming soon.",
     images: [{ url: "/assets/social.jpg", width: 1200, height: 630, alt: "Some Other Life — Collection 01." }],
     type: "website",
   },
