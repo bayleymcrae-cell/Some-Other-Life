@@ -118,13 +118,13 @@ export default function CollectionExperience() {
         <img className="hero-image" src="/assets/entrance.webp" alt="A warm stone doorway opening into golden light" width="1536" height="1024" fetchPriority="high" />
         <div className="hero-shade" />
         <div className="hero-label"><span>SOME OTHER LIFE</span><span>01</span></div>
-        <div className="hero-copy"><p className="eyebrow">THE FIRST COLLECTION</p><h1 id="hero-title">Collection 01</h1><p className="hero-description">Coming soon.</p><a className="hero-link" href="#collection-preview">View collection</a></div>
+        <div className="hero-copy"><p className="eyebrow">COLLECTION 01</p><h1 id="hero-title">BLACK SWAN</h1><p className="hero-description">Coming soon.</p><a className="hero-link" href="#collection-preview">View collection</a></div>
         <button className="door-hotspot" aria-label="View Collection 01" onClick={showCollection}><span aria-hidden="true">+</span><span>Enter</span></button>
         <div className="hero-bottom"><nav className="shop-section-nav" aria-label="Explore"><a href="#collection-preview">Collection 01</a><a href="#studio-notes">Studio notes</a></nav><a href="#collection-preview" className="scroll-link" aria-label="Scroll to Collection 01">↓</a></div>
       </section>
 
       <section className="collection-shop section-wrap" id="collection-preview" aria-labelledby="collection-title">
-        <div className="shop-heading"><div><p className="eyebrow">SOME OTHER LIFE</p><h2 id="collection-title">Collection 01</h2></div><span className="shop-release-status">Coming soon</span></div>
+        <div className="shop-heading"><div><p className="eyebrow">SOME OTHER LIFE</p><h2 id="collection-title">BLACK SWAN</h2></div><span className="shop-release-status">Coming soon</span></div>
         <p className="shop-description">Insignia Long Sleeve. Three colourways.</p>
         <div className="product-grid">{products.map(item => <article className="product-card" key={item.id} aria-labelledby={`product-${item.id}`}>
           <div className="product-square"><img src={item.image} alt={`Insignia Long Sleeve design preview in ${item.name.toLowerCase()}`} width="330" height="290" loading="lazy" decoding="async" /></div>
