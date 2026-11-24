@@ -3,7 +3,7 @@ import { join, relative } from "node:path";
 
 // Public assets are intentionally allowlisted. The owner approved Collection 01
 // garment previews; the complete manufacturing board and technical pack stay private.
-const allowed = new Set(["assets/entrance.webp", "assets/social.jpg", "assets/logo.jpg", "assets/texture-study.webp", "assets/embroidery-study.webp", "favicon.png", "favicon.svg", "assets/insignia.svg", "assets/official-insignia.png", "robots.txt", "sitemap.xml"]);
+const allowed = new Set(["assets/entrance.webp", "assets/social.jpg", "assets/logo.jpg", "assets/texture-study.webp", "assets/embroidery-study.webp", "favicon.png", "favicon.svg", "assets/insignia.svg", "assets/official-insignia.png", "robots.txt", "sitemap.xml", "black-swan.html", "about.html"]);
 // The seven editorial photographs supplied for this website update are public.
 for (const name of ["material-black-yellow", "material-ivory-indigo", "material-petrol-ice", "emblem-study", "embroidery-detail", "studio-notes", "first-notice"]) {
   allowed.add(`assets/${name}.webp`);
