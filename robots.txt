@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /api/
+Disallow: /studio
+Disallow: /unsubscribe
+Sitemap: https://someotherlife.studio/sitemap.xml
