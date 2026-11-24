@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
   icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
+    icon: "/favicon.svg?v=insignia-20261124",
+    shortcut: "/favicon.svg?v=insignia-20261124",
   },
 };
 
