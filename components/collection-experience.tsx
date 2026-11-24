@@ -135,8 +135,8 @@ export default function CollectionExperience() {
           </div>
         </article>)}</div>
         <section className="denim-feature" aria-labelledby="elsewhere-title">
-          <div className="denim-feature-visual"><img src="/assets/elsewhere-cargo-denim.webp" alt="A shadowed glimpse of washed-indigo cargo jeans with the SOME OTHER LIFE blue embroidered insignia" width="173" height="320" loading="lazy" decoding="async" /></div>
-          <div className="denim-feature-content"><p className="denim-feature-index">SOME OTHER LIFE <span aria-hidden="true">/</span> 01</p><div className="denim-feature-bottom"><h3 id="elsewhere-title">ELSEWHERE<span aria-hidden="true">.</span></h3><p className="denim-feature-coming">COLLECTION 01 <span aria-hidden="true">—</span> COMING SOON</p></div></div>
+          <div className="denim-feature-visual"><img src="/assets/elsewhere-night-study-1120.webp" srcSet="/assets/elsewhere-night-study-640.webp 640w, /assets/elsewhere-night-study-1120.webp 1120w" sizes="(max-width: 700px) 100vw, 86vw" alt="A close detail of blue chenille insignia and washed-indigo cargo denim draped across black leather at night" width="1120" height="1400" loading="lazy" decoding="async" /></div>
+          <div className="denim-feature-content"><p className="denim-feature-index">SOME OTHER LIFE</p><div className="denim-feature-bottom"><h3 id="elsewhere-title">ELSEWHERE</h3><p className="denim-feature-coming">COMING SOON</p></div></div>
         </section>
         <p className="shop-preview-note">Design previews · Samples in development. Final details and release date to follow.</p>
 

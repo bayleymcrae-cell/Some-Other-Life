@@ -13,6 +13,10 @@ for (const name of ["material-black-yellow", "material-ivory-indigo", "material-
 for (const colour of ["black-yellow", "ivory-indigo", "petrol-ice"]) {
   allowed.add(`assets/collection-01-${colour}.svg`);
 }
+// Public campaign details for the owner's ELSEWHERE denim teaser.
+for (const width of [640, 1120]) {
+  allowed.add(`assets/elsewhere-night-study-${width}.webp`);
+}
 async function files(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
   const results = await Promise.all(entries.map(entry => entry.isDirectory() ? files(join(directory, entry.name)) : [join(directory, entry.name)]));
