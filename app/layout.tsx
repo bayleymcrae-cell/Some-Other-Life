@@ -3,13 +3,13 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://someotherlife.studio"),
-  title: "SOME OTHER LIFE",
+  title: "SOME OTHER LIFE — Independent Clothing Label",
   alternates: { canonical: "/" },
   description: "An independent clothing label. Collection 01 — BLACK SWAN.",
   openGraph: {
     url: "https://someotherlife.studio/",
     siteName: "SOME OTHER LIFE",
-    title: "SOME OTHER LIFE",
+    title: "SOME OTHER LIFE — Independent Clothing Label",
     description: "An independent clothing label. Collection 01 — BLACK SWAN.",
     images: [{ url: "/assets/social.jpg", width: 1200, height: 630, alt: "Some Other Life — BLACK SWAN." }],
     type: "website",

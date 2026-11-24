@@ -118,7 +118,7 @@ export default function CollectionExperience() {
         <img className="hero-image" src="/assets/entrance.webp" alt="A warm stone doorway opening into golden light" width="1536" height="1024" fetchPriority="high" />
         <div className="hero-shade" />
         <div className="hero-label"><span>SOME OTHER LIFE</span><span>01</span></div>
-        <div className="hero-copy"><p className="eyebrow">COLLECTION 01</p><h1 id="hero-title">BLACK SWAN</h1><p className="hero-description">Coming soon.</p><a className="hero-link" href="#collection-preview">View collection</a></div>
+        <div className="hero-copy"><p className="eyebrow">COLLECTION 01</p><h1 id="hero-title">BLACK SWAN</h1><p className="hero-description">Independent clothing label. Coming soon.</p><a className="hero-link" href="#collection-preview">View collection</a></div>
         <button className="door-hotspot" aria-label="View Collection 01" onClick={showCollection}><span aria-hidden="true">+</span><span>Enter</span></button>
         <div className="hero-bottom"><nav className="shop-section-nav" aria-label="Explore"><a href="#collection-preview">Collection 01</a><a href="#studio-notes">Studio notes</a></nav><a href="#collection-preview" className="scroll-link" aria-label="Scroll to Collection 01">↓</a></div>
       </section>
